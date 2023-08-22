@@ -6,10 +6,9 @@ const callback = (mutationList) => {
     for (const { addedNodes } of mutationList) {
         for (const node of addedNodes) {
             if (!node.tagName) { continue; }
-            console.log(node);
             const nextUpCardTitleElement = node.getElementsByClassName(nextUpCardTitle);
            if(nextUpCardTitleElement.length > 0) {
-                nextUpCardTitleElement[0].parentNode.parentNode.parentNode.parentNode.remove();
+               nextUpCardTitleElement[0].parentNode.parentNode.parentNode.parentNode.remove();
            }
         }
     }
