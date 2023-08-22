@@ -1,14 +1,16 @@
 const config = { attributes: true, childList: true, subtree: true };
 const nextElementClassName = "atvwebplayersdk-nextupcard-wrapper";
+const nextUpCardTitle = "atvwebplayersdk-nextupcard-title";
 
 const callback = (mutationList) => {
     for (const { addedNodes } of mutationList) {
         for (const node of addedNodes) {
             if (!node.tagName) { continue; }
-            const targetElementList = node.getElementsByClassName(nextElementClassName);
-            if (node.classList.contains(nextElementClassName)) {
-                node.remove();
-            }
+            console.log(node);
+            const nextUpCardTitleElement = node.getElementsByClassName(nextUpCardTitle);
+           if(nextUpCardTitleElement.length > 0) {
+                nextUpCardTitleElement[0].parentNode.parentNode.parentNode.parentNode.remove();
+           }
         }
     }
 }
